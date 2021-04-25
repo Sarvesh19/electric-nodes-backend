@@ -39,6 +39,8 @@ public class RequestFilter implements Filter {
 					+ "access-control-request-headers,access-control-request-method,accept,origin,authorization,x-requested-with");
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
+		
+		//Object
 
 	}
 }
