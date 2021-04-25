@@ -34,7 +34,7 @@ import com.mongodb.DBObject;
 import com.mongodb.client.MongoCollection;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://electricnodes.com, www.electricnodes.com")
 @RequestMapping("/")
 public class UserController {
 
