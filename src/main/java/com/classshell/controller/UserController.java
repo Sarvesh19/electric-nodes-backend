@@ -46,7 +46,7 @@ public class UserController {
 	@RequestMapping(value = "test", method = RequestMethod.GET)
 	public ResponseEntity<Map<String, String>> welcome() {
 		Map<String, String> test = new HashMap<>();
-		test.put("data", "hello class shell App");
+		test.put("data", "Electric Nodes");
 
 		User s = userService.getUser();
 		System.out.println(s);
