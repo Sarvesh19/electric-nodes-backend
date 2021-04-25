@@ -8,7 +8,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 //import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
@@ -21,7 +23,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	    BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 	    return bCryptPasswordEncoder;
 	}
-	
+	@Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**").allowedOrigins("https://electricnodes.com").allowedMethods("PUT", "DELETE",
+                        "GET", "POST");
+            }
+        };
+    }
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {					// /test
 		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/login").permitAll().antMatchers("/forgotpassword").permitAll().antMatchers("/signup").permitAll().antMatchers("/test").permitAll().antMatchers("/gettoken").permitAll().antMatchers("/waitingtime/{tokenuser}").permitAll().anyRequest()
