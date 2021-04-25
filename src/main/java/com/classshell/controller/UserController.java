@@ -34,7 +34,7 @@ import com.mongodb.DBObject;
 import com.mongodb.client.MongoCollection;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin
 @RequestMapping("/")
 public class UserController {
 
