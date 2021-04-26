@@ -67,7 +67,7 @@ public class UserService {
 			throw new Exception("No User record exist for given username");
 		}
 		User user_ = new User();
-		user_.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		//user_.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user_.setEmail(user.getEmail());
 		user_.setFirstname(user.getFirstname());
 		user_.setIsproducer(user.getIsproducer());
@@ -79,8 +79,16 @@ public class UserService {
 		Optional<User> user = userRepo.findEmployeeByUserNameNative(val.getUsername());
 		
 		if (user.isPresent() && userPasswordCheck(val.getPassword(), user.get())) {
-			user.get().setId(user.get().getUserid().toString());
-			return user.get();
+			//;
+			User user_ = new User();
+			//user_.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+			user_.setId(user.get().getId());
+			user_.setEmail(user.get().getEmail());
+			user_.setFirstname(user.get().getFirstname());
+			user_.setIsproducer(user.get().getIsproducer());
+			user_.setIsconcumer(user.get().getIsconcumer());
+			//return userRepo.save(user_);
+			return user_;
 		} else {
 			throw new Exception("No User record exist for given username");
 
