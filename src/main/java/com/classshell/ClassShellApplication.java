@@ -21,7 +21,7 @@ public class ClassShellApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ClassShellApplication.class, args);
 	}
-	
+	// git push master main
 	@Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
