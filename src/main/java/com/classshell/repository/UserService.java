@@ -67,7 +67,7 @@ public class UserService {
 			throw new Exception("No User record exist for given username");
 		}
 		User user_ = new User();
-		//user_.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		user_.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user_.setEmail(user.getEmail());
 		user_.setFirstname(user.getFirstname());
 		user_.setIsproducer(user.getIsproducer());
