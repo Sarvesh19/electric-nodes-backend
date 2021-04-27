@@ -82,7 +82,7 @@ public class UserService {
 			//;
 			User user_ = new User();
 			//user_.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-			user_.setId(user.get().getId());
+			user_.setId(user.get().getUserid().get().toString());
 			user_.setEmail(user.get().getEmail());
 			user_.setFirstname(user.get().getFirstname());
 			user_.setIsproducer(user.get().getIsproducer());
