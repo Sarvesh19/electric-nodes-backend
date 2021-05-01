@@ -1,4 +1,4 @@
-package com.classshell.dto;
+package com.electricnodes.dto;
 
 import java.util.List;
 
@@ -19,11 +19,37 @@ public class User {
     private String email;
     private String phone;
     private List<Post> post;
+    private boolean isEmailConfirm;
+    private String confirmCode;
     
     private String id;
+    
+    private String token;
+    
+    
    
 
-    public void setUserid(ObjectId userid) {
+  
+
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	public boolean isEmailConfirm() {
+		return isEmailConfirm;
+	}
+	public void setEmailConfirm(boolean isEmailConfirm) {
+		this.isEmailConfirm = isEmailConfirm;
+	}
+	public String getConfirmCode() {
+		return confirmCode;
+	}
+	public void setConfirmCode(String confirmCode) {
+		this.confirmCode = confirmCode;
+	}
+	public void setUserid(ObjectId userid) {
          this.userId = userid;
      }
      public ObjectId getUserid() {

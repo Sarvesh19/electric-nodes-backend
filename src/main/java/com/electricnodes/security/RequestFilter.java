@@ -1,4 +1,4 @@
-package com.classshell.security;
+package com.electricnodes.security;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -13,13 +13,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
-public class RequestFilter implements Filter {
+public class RequestFilter {
 
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) {
 		HttpServletResponse response = (HttpServletResponse) res;
 		HttpServletRequest request = (HttpServletRequest) req;
 
-		response.setHeader("Access-Control-Allow-Origin", "*");// https://shareparty-hmi.herokuapp.com
+		response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));// https://shareparty-hmi.herokuapp.com
 		response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
 		response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
 		response.setHeader("Access-Control-Max-Age", "3600");

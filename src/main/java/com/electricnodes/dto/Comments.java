@@ -1,4 +1,4 @@
-package com.classshell.dto;
+package com.electricnodes.dto;
 
 public class Comments {
 

@@ -1,4 +1,4 @@
-package com.classshell.dto;
+package com.electricnodes.dto;
 
 /* Copyright 2021 freecodeformat.com */
 

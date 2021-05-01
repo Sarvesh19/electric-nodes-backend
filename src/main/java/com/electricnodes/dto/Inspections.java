@@ -1,6 +1,6 @@
 
 /* Copyright 2021 freecodeformat.com */
-package com.classshell.dto;
+package com.electricnodes.dto;
 
 import java.util.Date;
 
