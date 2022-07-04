@@ -73,10 +73,10 @@ public class UserService {
 
 	public User saveUser(User user) throws Exception {
 		Optional<User> user1 = userRepo.findEmployeeByUserNameNative(user.getEmail());
-		if (user1.isPresent()) {
-			throw new Exception("No User record exist for given username");
-		}
-		Random rand = new Random();
+		////if (user1.isPresent()) {
+			//throw new Exception("User already exist for given username");
+	//	}
+		/*Random rand = new Random();
 
 		String verificationCode = String.format("%04d", rand.nextInt(10000));
 
@@ -85,14 +85,14 @@ public class UserService {
 
 		} catch (Exception e) {
 			// TODO: handle exception
-		}
+		}*/
 		User user_ = new User();
 		user_.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user_.setEmail(user.getEmail());
 		user_.setFirstname(user.getFirstname());
 		user_.setIsproducer(user.getIsproducer());
 		user_.setIsconcumer(user.getIsconcumer());
-		user_.setConfirmCode(verificationCode);
+		//user_.setConfirmCode(verificationCode);
 		
 		
 		user_.setEmailConfirm(false);
@@ -130,7 +130,7 @@ public class UserService {
 			String token = jwtUtil.generateToken(user.get().getEmail());
 
 			User user_ = new User();
-			// user_.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+			//user_.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 			user_.setId(user.get().getUserid().get().toString());
 			user_.setEmail(user.get().getEmail());
 			user_.setFirstname(user.get().getFirstname());
@@ -150,6 +150,7 @@ public class UserService {
 
 		// PasswordEncoder passencoder = new BCryptPasswordEncoder();
 		String encodedPassword = user.getPassword();
+		
 		return passwordEncoder.matches(password, encodedPassword);
 	}
 
