@@ -84,18 +84,18 @@ public class UserController {
 
 	}
 	
-	@PostMapping(path = "confirmmail", consumes = "application/json", produces = "application/json")
+	//@PostMapping(path = "confirmmail", consumes = "application/json", produces = "application/json")
 
-	public ResponseEntity<User> confirmMail(@RequestBody UserNamePassword userDto) throws Exception {
+//	public ResponseEntity<User> confirmMail(@RequestBody UserNamePassword userDto) throws Exception {
 
-		User user = userService.confirmUser(userDto);
+	//	User user = userService.confirmUser(userDto);
 		
-		user.setId(user.getUserid().get().toString());
+		//user.setId(user.getUserid().get().toString());
 
 
-		return new ResponseEntity<User>(user, new HttpHeaders(), HttpStatus.OK);
+		//return new ResponseEntity<User>(user, new HttpHeaders(), HttpStatus.OK);
 
-	}
+//	}
 
 	@PostMapping(path = "login", consumes = "application/json", produces = "application/json")
 	public ResponseEntity<User> loginUser(@RequestBody com.electricnodes.dto.UserNamePassword userDto) throws Exception {
